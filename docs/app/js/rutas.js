@@ -22,7 +22,7 @@ const ROUTES={
 };
 function allowed(r){const R_=ROUTES[r].r;if(R_===ALL)return true;if(R_==="anon")return!SESSION;return!!SESSION&&R_.includes(SESSION.rol)}
 function nav(){
- let h=`<div class="brand"><div class="mono">YT</div><b>Yesid's Treasure</b></div><p class="tagline">Plataforma de oro · SENA 2026</p>`,g="";
+ let h=`<div class="brand"><img src="img/logo.png" alt="Logo de Yesid's Treasure"><b>Yesid's Treasure</b></div><p class="tagline">Plataforma de oro · SENA 2026</p>`,g="";
  for(const[k,r]of Object.entries(ROUTES)){
   if(!allowed(k)&&!(k==="login"&&!SESSION))continue; if(k==="requisitos"&&false)continue;
   if(r.g!==g){g=r.g;h+=`<div class="grp">${g}</div>`}

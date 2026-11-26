@@ -1,7 +1,7 @@
 /* ============ vistas ============ */
 const VIEWS={},AFTER={};
 VIEWS.inicio=()=>`<div class="stack">
- <section class="card hero"><h2>Yesid's Treasure · Oro Familiar</h2><p>Del material aurífero al oro refinado. Conoce nuestros procesos, consulta los productos y solicita servicios de compra, venta o refinación de oro.</p>
+ <section class="card hero"><div class="row0" style="margin-bottom:12px"><img src="img/logo.png" alt="Logo de Yesid's Treasure"><h2 style="margin:0">Yesid's Treasure · Oro Familiar</h2></div><p>Del material aurífero al oro refinado. Conoce nuestros procesos, consulta los productos y solicita servicios de compra, venta o refinación de oro.</p>
   <div class="row"><a class="btn gold" href="#/oro">Ver proceso de extracción</a><a class="btn" href="#/catalogo">Explorar productos</a></div></section>
  <section class="grid g4">
   <div class="card kpi"><div class="n">17</div><div class="l">Requerimientos funcionales</div><div class="small muted">Del documento · sin RF-13, 14 y 15</div></div>

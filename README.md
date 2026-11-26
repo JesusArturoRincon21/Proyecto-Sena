@@ -1,7 +1,6 @@
-# YESID'S TREASURE
 # Yesid's Treasure
 
-Plataforma web para [describe en una frase qué hace: por ejemplo, la gestión y comercialización de oro]. Proyecto desarrollado como parte de [programa / ficha] del SENA.
+Plataforma web para la compra, venta y refinación de oro del negocio familiar **Oro Familiar**. Proyecto final del programa **Análisis y Desarrollo de Software (ADSO)** del SENA.
 
 ## 🔗 Enlaces
 
@@ -11,15 +10,19 @@ Plataforma web para [describe en una frase qué hace: por ejemplo, la gestión y
 
 ## ✨ Funcionalidades
 
-- [Funcionalidad 1, por ejemplo: panel de inicio]
-- [Funcionalidad 2, por ejemplo: galería del entorno minero]
-- [Funcionalidad 3, por ejemplo: formulario de solicitud]
-- Diseño adaptable a celular y modo oscuro automático.
+- **Área pública:** inicio, proceso del oro y quilates (con calculadora de oro fino), productos de oro, servicios, galería y solicitud con número de radicado.
+- **Panel de gestión por roles** (Cliente, Vendedor, Trabajador y Administrador): solicitudes por estado, clientes, inventario y compras con refinación.
+- **Operación:** producción, jornada del trabajador, personal, pagos y presupuesto.
+- Formularios con validación y diseño adaptable a celular.
+
+> Estado actual: **prototipo funcional en el navegador** con datos de ejemplo guardados en `localStorage`. El inicio de sesión es de demostración.
 
 ## 🛠️ Tecnologías
 
-- HTML5, CSS3 y JavaScript (sin frameworks)
-- GitHub Pages para la publicación
+- **Frontend (actual):** HTML5, CSS3 y JavaScript, sin frameworks.
+- **Backend (en desarrollo):** Java con API REST.
+- **Base de datos (prevista):** MySQL, esquema `sir_golden`.
+- Publicación: GitHub Pages.
 
 ## 📁 Estructura del repositorio
 
@@ -43,11 +46,12 @@ docs/
    ```
 2. Abre `docs/app/index.html` en tu navegador. No requiere instalar nada.
 
-## 👥 Autores
+Cuentas de demostración (cualquier contraseña de 8 o más caracteres): `cliente@ejemplo.com`, `vendedor@ejemplo.com`, `trabajador@ejemplo.com` y `admin@ejemplo.com`.
 
-- Jesús Arturo Rincón — [rol]
-- [Otros integrantes]
+## 👥 Autor
+
+- Jesús Arturo Rincon Villamizar — Aprendiz ADSO, SENA
 
 ## 📄 Licencia
 
-[Indica la licencia o "Proyecto académico, todos los derechos reservados"]
+Proyecto académico, todos los derechos reservados.
