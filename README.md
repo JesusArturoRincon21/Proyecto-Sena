@@ -10,7 +10,7 @@ Plataforma web para la compra, venta y refinación de oro del negocio familiar *
 
 ## ✨ Funcionalidades
 
-- **Área pública:** inicio, proceso del oro y quilates (con calculadora de oro fino), productos de oro, servicios, galería y solicitud con número de radicado.
+- **Área pública:** inicio, proceso real de obtención del oro en 9 pasos y quilates (con calculadora de oro fino), productos de oro, servicios, galería con fotos y videos reales de la planta, y solicitud con número de radicado.
 - **Panel de gestión por roles** (Cliente, Vendedor, Trabajador y Administrador): solicitudes por estado, clientes, inventario y compras con refinación.
 - **Operación:** producción, jornada del trabajador, personal, pagos y presupuesto.
 - Formularios con validación y diseño adaptable a celular.
@@ -34,7 +34,8 @@ docs/
 │   ├── css/
 │   ├── js/
 │   ├── img/
-│   └── completo.html   # Versión en un solo archivo
+│   ├── video/          # Videos del proceso
+│   └── completo.html   # Versión en un solo archivo (videos incluidos)
 └── presentacion/       # Pitch en PDF y PowerPoint
 ```
 

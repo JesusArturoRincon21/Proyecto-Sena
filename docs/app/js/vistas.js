@@ -16,11 +16,18 @@ VIEWS.inicio=()=>`<div class="stack">
  <section class="callout"><b>33 requisitos en total = 17 RF + 9 RNF + 7 adicionales propuestos.</b><span class="small">Prototipo funcional · Datos de ejemplo en COP y gramos · Esquema previsto: sir_golden</span></section></div>`;
 
 VIEWS.oro=()=>`<div class="stack">
- <section class="card"><h2>Flujo de trabajo estándar</h2><p class="muted">De la identificación de la zona al oro refinado.</p><ol class="steps">${[
- ["Identificación de la zona","Análisis geológico inicial y delimitación del área de trabajo."],["Extracción del material","Remoción de roca portadora con maquinaria y protocolos de seguridad."],
- ["Transporte a procesamiento","Traslado del mineral a las plantas de lavado, trituración y cribado."],["Separación y recuperación","Lavado y separación física para recuperar las partículas de oro."],
- ["Medición de pureza y quilataje","Pesaje en gramos y análisis técnico de la muestra recuperada."],["Refinación y registro","Registro del resultado de refinación y del oro fino obtenido."]
+ <section class="card"><h2>Así obtenemos el oro</h2><p class="muted">Proceso real de Oro Familiar, desde la búsqueda del yacimiento hasta el oro refinado.</p><ol class="steps">${[
+ ["Búsqueda del yacimiento","Se buscan indicios de mineral en el sector y se hace un escaneo del terreno para decidir dónde trabajar."],
+ ["Perforación y excavación","En montaña se perfora entre 15 y 20 metros. El avance se asegura con tablones de madera para proteger a los trabajadores."],
+ ["Extracción del material","Se arranca la roca respetando tiempos de espera de seguridad. Luego los trabajadores recogen el material y revisan si hay rastros de oro y plata."],
+ ["Transporte y trituración inicial","La roca sube por polea y vagoneta, se tritura en trozos más pequeños y se lleva en volqueta a la planta: de 4 a 5 toneladas por viaje."],
+ ["Molienda en el molino de bolas","El material se carga con pala al molino, llamado trompo, que gira con bolas de hierro. Se vigila el sonido: muy lleno se desborda y muy vacío se oyen las bolas."],
+ ["Concentración con tapetes y mecedoras","El oro es pesado y queda en los tapetes: eso es el concentrado. Los tapetes se lavan y se cambian según el horario. Luego pasa por dos mecedoras que separan lo más pesado."],
+ ["Bateo y análisis del concentrado","El concentrado se bate y se revisa para saber cuánto oro está dando la mina. Lo que no se aprovecha va a tanques de tratamiento (1 a 2 semanas)."],
+ ["Recuperación y lavado","Si la mina da bien, el concentrado se procesa en barriles pequeños durante 1 a 1,5 horas; después se lava y se guardan los residuos para reprocesarlos."],
+ ["Fundición, pesaje y refinación","Se funde y se refina el oro. Según el lote salen desde unos 10 g hasta más de 100 g. A veces sale plata asociada, que también se comercializa."]
  ].map((s,i)=>`<li><span class="num">${i+1}</span><div><b>${s[0]}</b><div class="muted">${s[1]}</div></div></li>`).join("")}</ol></section>
+ <section class="card"><h2>Del campo a la planta</h2><div class="gal">${[0,1,2,3].map(i=>`<figure><img src="${GAL[i]}" alt="${GCAP[i][1]}" loading="lazy"><figcaption><small>${GCAP[i][0]}</small><b>${GCAP[i][1]}</b></figcaption></figure>`).join("")}</div><div class="row" style="margin-top:14px"><a class="btn" href="#/galeria">Ver videos del proceso</a></div></section>
  <section class="card"><h2>El quilataje expresa la proporción de oro puro</h2><p class="muted">24 quilates representan el oro de mayor pureza. Las aleaciones permiten ajustar resistencia y tonalidad. La pureza final debe confirmarse mediante ensayo técnico.</p>
   <div class="qgrid">${[[10,"Menor proporción de oro, mayor dureza"],[14,"Equilibrio entre dureza y contenido de oro"],[18,"Alta proporción de oro con buena resistencia"],[20,"Alta proporción de oro"],[22,"Oro de alta pureza"],[24,"Oro fino · resultado sujeto a ensayo"]].map(q=>`<div class="card q"><div class="k">${q[0]}k</div><b>${num(PUREZA[q[0]])} % de pureza</b><div class="muted">${q[1]}</div></div>`).join("")}</div></section>
  <section class="card"><h3>Calculadora de oro fino</h3><p class="muted small">Estimación informativa. La pureza final se confirma mediante ensayo.</p>
@@ -42,7 +49,12 @@ AFTER.catalogo=()=>{const q=$("#bq");q&&q.addEventListener("input",()=>{CATQ=q.v
 VIEWS.servicios=()=>`<div class="stack"><section class="grid g2">${SERVICIOS.map(s=>`<div class="card pcard"><h2>${s.n}</h2><p style="margin:0">${s.d}</p><b style="color:var(--goldink)">${s.p}</b><div><a class="btn gold" href="#/solicitar?t=${encodeURIComponent(s.n)}">Solicitar servicio</a></div></div>`).join("")}</section>
  <p class="muted small">Las cotizaciones se confirman después de revisar la solicitud. No se realizan cobros en este prototipo.</p></div>`;
 
-VIEWS.galeria=()=>`<div class="gal">${[["Entorno","Entorno minero"],["Personal","Trabajadores en operación"],["Producción","Proceso de extracción"],["Comercial","Oro recuperado"]].map((c,i)=>`<figure><img src="${GAL[i]}" alt="${c[1]}" loading="lazy"><figcaption><small>${c[0]}</small><b>${c[1]}</b></figcaption></figure>`).join("")}</div>`;
+const VIDF=["video/recorrido-planta.mp4","video/excavacion.mp4","video/mesa-concentracion.mp4"],POS=["img/poster-recorrido.jpg","img/poster-excavacion.jpg","img/poster-mesa.jpg"];
+const VIDS=[["Recorrido por la planta","1:48 · Molino, canaletas y mesas"],["Excavación del yacimiento","0:18 · Corte del terreno y roca con mineral"],["Mesa de concentración","0:32 · Agua sobre la mesa y vista de la planta"]];
+function vplay(w,i){w.innerHTML=`<video controls playsinline preload="auto" aria-label="${VIDS[i][0]}" src="${VIDF[i]}"></video><div class="vmsg">Cargando video…</div>`;const v=w.querySelector("video"),msg=w.querySelector(".vmsg");let ok=false;v.addEventListener("loadeddata",()=>{ok=true;msg.remove();v.play().catch(()=>{})});const fail=()=>{if(ok)return;v.remove();msg.innerHTML=`No se pudo reproducir el video aquí. <a download href="${VIDF[i]}">Descargar video</a> o abre esta página en Chrome, Edge o Firefox.`};v.addEventListener("error",fail);setTimeout(fail,9000)}
+document.addEventListener("click",e=>{const b=e.target.closest(".vid .play");if(b)vplay(b.closest(".vid"),+b.dataset.v)});
+const GCAP=[["Campo","Excavación del yacimiento"],["Planta","Molino de bolas (trompo)"],["Planta","Canaletas con tapetes"],["Planta","Bateo del concentrado"],["Planta","Mecedora"],["Planta","Vista general de la planta"]];
+VIEWS.galeria=()=>`<div class="gal">${GCAP.map((c,i)=>`<figure><img src="${GAL[i]}" alt="${c[1]}" loading="lazy"><figcaption><small>${c[0]}</small><b>${c[1]}</b></figcaption></figure>`).join("")}</div><h2 style="margin:26px 0 12px">Videos</h2><div class="gal">${VIDS.map((v,i)=>`<figure><div class="vid"><img src="${POS[i]}" alt="${v[0]}"><button class="play" data-v="${i}" aria-label="Reproducir: ${v[0]}">▶</button></div><figcaption><small>${v[1]}</small><b>${v[0]}</b></figcaption></figure>`).join("")}</div>`;
 
 /* ----- Solicitar ----- */
 let SOLF={};

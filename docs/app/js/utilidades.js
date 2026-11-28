@@ -30,4 +30,4 @@ const ICON={
  out:'<path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3"/>',mail:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>',
  cart:'<circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l3 12h11l2-8H6"/>',pick:'<path d="M3 21 14 10M12 3c5 0 9 3 9 8l-4-1-2 2-3-3z"/>'};
 const ico=n=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICON[n]||""}</svg>`;
-const GAL=["img/galeria-1.jpg","img/galeria-2.jpg","img/galeria-3.jpg","img/galeria-4.jpg"];
+const GAL=["img/galeria-1.jpg","img/galeria-2.jpg","img/galeria-3.jpg","img/galeria-4.jpg","img/galeria-5.jpg","img/galeria-6.jpg"];
